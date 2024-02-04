@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Login", :type => :feature do
   let(:user) { create(:user) }
 
-  scenario 'user navigates to the login page and successfully logs in', js: true do
+  scenario 'user navigates to the login page and successfully logs in' do
     user
     visit root_path
     find('nav a', text: 'Login').click
