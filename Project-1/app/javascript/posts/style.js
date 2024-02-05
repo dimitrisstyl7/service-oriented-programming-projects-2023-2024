@@ -1,33 +1,33 @@
 const colorSet = randomColorSet();
 const mode = Math.floor(Math.random() * 2);
+const $feed = $('#feed');
 
 $(document).on('DOMContentLoaded', function () {
     const $singlePostCard = $('.single-post-card');
     if ($singlePostCard.length) {
         // set a solid background color style
         if (mode === 1) {
-            $singlePostCard.each(function() {
+            $singlePostCard.each(function () {
                 $(this).addClass("solid-color-mode");
                 $(this).css('background-color', randomColor());
             });
         }
         // set a border color style
         else {
-            $singlePostCard.each(function() {
+            $singlePostCard.each(function () {
                 $(this).addClass("border-color-mode");
                 $(this).css('border', '5px solid ' + randomColor());
             });
         }
     }
 
-    const $feed = $('#feed');
-    $feed.on( 'mouseenter', '.single-post-list', function() {
-        $(this).css('border-color', randomColor());
-    });
+        $feed.on( 'mouseenter', '.single-post-list', function() {
+            $(this).css('border-color', randomColor());
+        });
 
-    $feed.on( 'mouseleave', '.single-post-list', function() {
-        $(this).css('border-color', 'rgba(0, 0 , 0, 0.05)');
-    });
+        $feed.on( 'mouseleave', '.single-post-list', function() {
+            $(this).css('border-color', 'rgba(0, 0 , 0, 0.05)');
+        });
 
 });
 
@@ -41,7 +41,7 @@ function randomColorSet() {
     const colorSet6 = ['#04BFBF', '#CAFCD8', '#F7E967', '#A9CF54', '#588F27'];
     const colorSet7 = ['#405952', '#9C9B7A', '#FFD393', '#FF974F', '#F54F29'];
     const randomSet = [colorSet1, colorSet2, colorSet3, colorSet4, colorSet5, colorSet6, colorSet7];
-    return randomSet[Math.floor(Math.random() * randomSet.length )];
+    return randomSet[Math.floor(Math.random() * randomSet.length)];
 }
 
 // Randomly returns a color from an array of colors
