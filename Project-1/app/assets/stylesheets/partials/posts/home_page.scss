@@ -1,17 +1,20 @@
 .single-post-card {
   min-height: 135px;
   max-height: 135px;
-  box-shadow: 1px 1px 4px rgba(0,0,0, 0.3);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   color: black;
   padding: 10px;
   text-align: left;
   transition: border 0.1s, background 0.5s;
+
   .post-text {
     overflow: hidden;
   }
+
   a, a:active, a:hover {
     color: black;
   }
+
   &:hover {
     cursor: pointer;
     background: white;
@@ -23,6 +26,7 @@
 .post-content {
   display: none;
 }
+
 .solid-color-mode, .border-color-mode {
   .post-text {
     text-align: center;
