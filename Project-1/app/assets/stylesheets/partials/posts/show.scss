@@ -1,0 +1,18 @@
+#single-post-content {
+  background: white;
+  height: calc(100vh - 50px);
+
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin: 50px 0;
+  }
+
+  .posted-by {
+    font-size: 12px;
+    margin: 20px 0;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
