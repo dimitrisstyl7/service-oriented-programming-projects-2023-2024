@@ -7,26 +7,32 @@
 
 #side-menu {
   padding: 0;
+
   #links-list {
     margin-top: 20px;
     padding: 0;
+
     a {
       display: block;
       padding: 5px 15px;
       margin: 2px 0;
     }
+
     li {
       min-width: 195px;
       max-width: 195px;
     }
+
     li, li a {
       color: black;
       text-decoration: none;
     }
+
     li:hover {
       border-radius: 50px;
       background: $navbarColor;
     }
+
     li:hover a, li:hover i {
       color: white;
     }
