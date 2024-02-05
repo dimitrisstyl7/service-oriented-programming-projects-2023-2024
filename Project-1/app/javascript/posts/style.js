@@ -1,7 +1,7 @@
 const colorSet = randomColorSet();
 const mode = Math.floor(Math.random() * 2);
 
-$(document).on('turbolinks:load', function() {
+$(document).on('DOMContentLoaded', function () {
     const $singlePostCard = $('.single-post-card');
     if ($singlePostCard.length) {
         // set a solid background color style
