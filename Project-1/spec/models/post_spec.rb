@@ -51,7 +51,7 @@ RSpec.describe Post, type: :model do
   context 'Validations' do
     let(:post) { build(:post) }
 
-    it 'creates succesfully' do
+    it 'creates successfully' do
       post.category = create(:category)
       expect(post).to be_valid
     end
