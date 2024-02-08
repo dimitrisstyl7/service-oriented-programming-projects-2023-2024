@@ -80,13 +80,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  
-  require 'capybara/poltergeist'
+
   require 'factory_bot_rails'
   require 'capybara/rspec'
+  require 'selenium-webdriver'
 
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include FactoryBot::Syntax::Methods
-  Capybara.javascript_driver = :poltergeist
   Capybara.server = :puma
 end
