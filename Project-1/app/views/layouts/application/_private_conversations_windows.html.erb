@@ -1,7 +1,4 @@
-<% puts "Inside conv window" %>
-
 <% private_conversations_windows.each do |conversation| %>
-  <% puts "Inside conv window 2" %>
   <%= render partial: "private/conversations/conversation",
              locals: { conversation: conversation,
                        user: current_user } %>
