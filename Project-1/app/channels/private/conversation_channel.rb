@@ -7,3 +7,10 @@ class Private::ConversationChannel < ApplicationCable::Channel
     stop_all_streams
   end
 end
+
+def send_message(data)
+  message_params = data['message'].each_with_object({}) do |el, hash|
+    hash[el['name']] = el['value']
+  end
+  Private::Message.create(message_params)
+end
