@@ -3,7 +3,7 @@
 <li class="conversation-window"
     id="pc<%= conversation.id %>"
     data-pconversation-user-name="<%= @recipient.name %>"
-    data-turbolinks-permanent>
+    data-turbo-permanent>
   <div class="panel panel-default" data-pconversation-id="<%= conversation.id %>">
     <%= render 'private/conversations/conversation/heading',
                conversation: conversation %>
