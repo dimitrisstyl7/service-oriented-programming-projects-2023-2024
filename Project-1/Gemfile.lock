@@ -191,10 +191,6 @@ GEM
     public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
-    rabl-rails (0.6.2)
-      activesupport (>= 4.2)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      railties (>= 4.2)
     racc (1.7.3)
     rack (3.0.9)
     rack-session (2.0.0)
@@ -340,7 +336,6 @@ DEPENDENCIES
   jquery-rails
   pg (~> 1.1)
   puma (>= 5.0)
-  rabl-rails
   rails (~> 7.1.3)
   rails-controller-testing
   rspec-rails (~> 6.1.1)
