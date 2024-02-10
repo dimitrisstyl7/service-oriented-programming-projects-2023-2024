@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe Private::MessagesHelper, :type => :helper do
   context '#private_message_date_check' do
     let(:message) { create(:private_message) }
