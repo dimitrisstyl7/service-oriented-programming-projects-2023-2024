@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 context '#load_private_messages' do
   let(:conversation) { create(:private_conversation) }
 
