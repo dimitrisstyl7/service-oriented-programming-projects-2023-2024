@@ -93,9 +93,7 @@ RSpec.describe Private::ConversationsHelper, :type => :helper do
     it "returns an empty partial's path" do
       allow(helper).to receive(:recipient_is_contact?).and_return(true)
       allow(helper).to receive(:unaccepted_contact_exists).and_return(false)
-      expect(helper.not_contact_no_request_partial_path(contact)).to eq(
-                                                                       'shared/empty_partial'
-                                                                     )
+      expect(helper.not_contact_no_request_partial_path(contact)).to eq 'shared/empty_partial'
     end
 
     it "returns an empty partial's path" do
