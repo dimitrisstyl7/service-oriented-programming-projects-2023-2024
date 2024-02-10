@@ -29,4 +29,19 @@ class User < ApplicationRecord
   has_many :pending_received_contact_requests, -> { where(contacts: { accepted: false }) },
            through: :all_received_contact_requests,
            source: :user
+
+  # gets all your contacts
+  def all_active_contacts
+    accepted_sent_contact_requests | accepted_received_contact_requests
+  end
+
+  # gets your pending sent and received contacts
+  def pending_contacts
+    pending_sent_contact_requests | pending_received_contact_requests
+  end
+
+  # gets a Contact record
+  def contact(contact)
+    Contact.where(user_id: self.id, contact_id: contact.id)[0]
+  end
 end
