@@ -330,7 +330,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
-  gon
+  gon (~> 6.1)
   importmap-rails
   jbuilder
   jquery-rails

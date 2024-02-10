@@ -49,7 +49,7 @@ gem 'faker'
 
 gem 'will_paginate', '~>4.0.0'
 
-gem 'gon'
+gem 'gon', '~> 6.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.2'
