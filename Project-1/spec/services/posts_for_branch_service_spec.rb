@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PostsHelper, :type => :helper do
-
   context '#create_new_post_partial_path' do
     it "returns a signed_in partial's path" do
       allow(helper).to receive(:user_signed_in?).and_return(true)
