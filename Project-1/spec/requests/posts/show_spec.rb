@@ -1,5 +1,6 @@
 require 'rails_helper'
 include Warden::Test::Helpers
+
 RSpec.describe "show", :type => :request do
 
   shared_examples 'render_show_template' do
