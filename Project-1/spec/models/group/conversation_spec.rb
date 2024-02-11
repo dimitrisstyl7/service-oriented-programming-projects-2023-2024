@@ -13,7 +13,7 @@ RSpec.describe Group::Conversation, type: :model do
       association = described_class.reflect_on_association(:messages)
       expect(association.macro).to eq :has_many
       expect(association.options[:class_name]).to eq 'Group::Message'
-      expect(association.options[:foreign_key]).to eq 'conversation_id'
+      expect(association.options[:foreign_key]).to eq :conversation_id
       expect(association.options[:dependent]).to eq :destroy
     end
   end
