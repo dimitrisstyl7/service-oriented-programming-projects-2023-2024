@@ -44,8 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_200753) do
 
   create_table "group_messages", force: :cascade do |t|
     t.string "content"
-    t.string "added_new_users"
-    t.string "seen_by"
+    t.string "added_new_users", default: [], array: true
+    t.string "seen_by", default: [], array: true
     t.bigint "user_id"
     t.bigint "conversation_id"
     t.datetime "created_at", null: false
