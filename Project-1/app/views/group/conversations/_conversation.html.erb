@@ -1,6 +1,6 @@
 <% add_people_to_conv_list = add_people_to_group_conv_list(conversation) %>
 <% @is_messenger = false %>
-<li class="conversation-window" id="gc<%= conversation.id %>" data-turbolinks-permanent>
+<li class="conversation-window" id="gc<%= conversation.id %>" data-turbo-permanent>
   <div class="panel panel-default" data-gconversation-id="<%= conversation.id %>">
     <%= render 'group/conversations/conversation/heading',
                conversation: conversation %>
