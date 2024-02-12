@@ -25,6 +25,10 @@ module Private::MessagesHelper
   end
 
   def replace_link_to_private_messages_partial_path
-    'private/messages/load_more_messages/window/replace_link_to_messages'
+    if @is_messenger == 'true'
+      'private/messages/load_more_messages/messenger/replace_link_to_messages'
+    else
+      'private/messages/load_more_messages/window/replace_link_to_messages'
+    end
   end
 end
