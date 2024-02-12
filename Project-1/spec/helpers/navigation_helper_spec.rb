@@ -54,14 +54,14 @@ RSpec.describe NavigationHelper, :type => :helper do
     it "returns a partial's path for a private conversation's header" do
       conversation = create(:private_conversation)
       expect(helper.conversation_header_partial_path(conversation)).to eq(
-                                                                         'layouts/navigation/header/dropdowns/conversations/private_conversation'
+                                                                         'layouts/navigation/header/dropdowns/conversations/private'
                                                                        )
     end
 
     it "returns a partial's path for a group conversation's header" do
       conversation = create(:group_conversation)
       expect(helper.conversation_header_partial_path(conversation)).to eq(
-                                                                         'layouts/navigation/header/dropdowns/conversations/group_conversation'
+                                                                         'layouts/navigation/header/dropdowns/conversations/group'
                                                                        )
     end
   end
