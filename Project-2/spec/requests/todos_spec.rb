@@ -5,7 +5,7 @@ RSpec.describe 'Todos API', type: :request do
   let(:user) { create(:user) }
 
   # initialize test data
-  let!(:todos) { create_list(:todo, 10) }
+  let!(:todos) { create_list(:todo, 10, created_by: user.id) }
   let(:todo_id) { todos.first.id }
 
   # authorize request
