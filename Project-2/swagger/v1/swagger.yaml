@@ -1,0 +1,277 @@
+---
+openapi: 3.0.1
+info:
+  title: Todos API
+  version: v1
+paths:
+  "/auth/login":
+    post:
+      summary: Login
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '200':
+          description: Successful login, returning an authentication token
+        '401':
+          description: Unauthorized user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/signup":
+    post:
+      summary: Sign up
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '201':
+          description: Successful sign-up, returning an authentication token
+        '422':
+          description: Unprocessable content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+  "/todos/{todo_id}/items":
+    parameters:
+    - name: todo_id
+      in: path
+      description: todo_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get all todo items
+      tags:
+      - Todo Items
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Successfully retrieved all todo items
+        '404':
+          description: Invalid todo ID
+        '422':
+          description: Unprocessable content
+    post:
+      summary: Create a new todo item
+      tags:
+      - Todo Items
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '201':
+          description: Todo item created successfully
+        '404':
+          description: Invalid todo ID
+        '422':
+          description: Unprocessable content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                done:
+                  type: boolean
+                  default: false
+              required:
+              - title
+              - done
+  "/todos/{todo_id}/items/{id}":
+    parameters:
+    - name: todo_id
+      in: path
+      description: todo_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a todo item
+      tags:
+      - Todo Items
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Successfully retrieved the specified todo item
+        '404':
+          description: Invalid todo and/or item ID
+        '422':
+          description: Unprocessable content
+    put:
+      summary: Update a todo item
+      tags:
+      - Todo Items
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '204':
+          description: Successful request with no response content
+        '404':
+          description: Invalid todo and/or item ID
+        '422':
+          description: Unprocessable content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                done:
+                  type: boolean
+              required:
+              - title
+              - done
+    delete:
+      summary: Delete a todo item
+      tags:
+      - Todo Items
+      security:
+      - Bearer: []
+      responses:
+        '204':
+          description: Successful request with no response content
+        '404':
+          description: Invalid todo and/or item ID
+        '422':
+          description: Unprocessable content
+  "/todos":
+    get:
+      summary: List all todos and todo items
+      tags:
+      - Todos
+      security:
+      - Bearer: []
+      responses:
+        '422':
+          description: Unprocessable content
+    post:
+      summary: Create a new todo
+      tags:
+      - Todos
+      parameters: []
+      security:
+      - Bearer: []
+      responses:
+        '201':
+          description: Todo created successfully
+        '422':
+          description: Unprocessable content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+              required:
+              - title
+  "/todos/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a todo
+      tags:
+      - Todos
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: Successfully retrieved the specified todo
+        '404':
+          description: Invalid todo ID
+        '422':
+          description: Unprocessable content
+    put:
+      summary: Update a todo
+      tags:
+      - Todos
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '204':
+          description: Successful request with no response content
+        '404':
+          description: Invalid todo ID
+        '422':
+          description: Unprocessable content
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+              required:
+              - title
+    delete:
+      summary: Delete a todo and its items
+      tags:
+      - Todos
+      security:
+      - Bearer: []
+      responses:
+        '204':
+          description: Successful request with no response content
+        '404':
+          description: Invalid todo ID
+        '422':
+          description: Unprocessable content
+servers:
+- url: http://{defaultHost}:3000
+  variables:
+    defaultHost:
+      default: localhost
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT Token Authentication
+      name: Authorization
+      in: header
