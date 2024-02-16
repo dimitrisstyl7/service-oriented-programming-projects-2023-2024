@@ -13,6 +13,8 @@ paths:
       responses:
         '200':
           description: Successful login, returning an authentication token
+        '400':
+          description: Bad request
         '401':
           description: Unauthorized user
       requestBody:
@@ -37,6 +39,8 @@ paths:
       responses:
         '201':
           description: Successful sign-up, returning an authentication token
+        '400':
+          description: Bad request
         '422':
           description: Unprocessable content
       requestBody:
@@ -141,6 +145,8 @@ paths:
       responses:
         '204':
           description: Successful request with no response content
+        '400':
+          description: Bad request
         '404':
           description: Invalid todo and/or item ID
         '422':
@@ -179,6 +185,8 @@ paths:
       security:
       - Bearer: []
       responses:
+        '200':
+          description: Successfully retrieved all todos and todo items
         '422':
           description: Unprocessable content
     post:
@@ -191,6 +199,8 @@ paths:
       responses:
         '201':
           description: Todo created successfully
+        '400':
+          description: Bad request
         '422':
           description: Unprocessable content
       requestBody:
@@ -234,6 +244,8 @@ paths:
       responses:
         '204':
           description: Successful request with no response content
+        '400':
+          description: Bad request
         '404':
           description: Invalid todo ID
         '422':
