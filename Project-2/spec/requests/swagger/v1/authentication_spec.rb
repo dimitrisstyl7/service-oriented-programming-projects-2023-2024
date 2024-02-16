@@ -25,6 +25,10 @@ RSpec.describe 'v1/authentication', type: :request do
         run_test!
       end
 
+      response 400, 'Bad request' do
+        run_test!
+      end
+
       response 401, 'Unauthorized user' do
         run_test!
       end
@@ -53,6 +57,10 @@ RSpec.describe 'v1/authentication', type: :request do
             }
           }
         end
+        run_test!
+      end
+
+      response 400, 'Bad request' do
         run_test!
       end
 
