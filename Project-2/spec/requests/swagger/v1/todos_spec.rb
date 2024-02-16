@@ -15,6 +15,7 @@ RSpec.describe 'v1/todos', type: :request do
             }
           }
         end
+        run_test!
       end
 
       response 422, 'Unprocessable content' do
@@ -43,6 +44,10 @@ RSpec.describe 'v1/todos', type: :request do
             }
           }
         end
+        run_test!
+      end
+
+      response 400, 'Bad request' do
         run_test!
       end
 
@@ -105,6 +110,10 @@ RSpec.describe 'v1/todos', type: :request do
             }
           }
         end
+        run_test!
+      end
+
+      response 400, 'Bad request' do
         run_test!
       end
 
