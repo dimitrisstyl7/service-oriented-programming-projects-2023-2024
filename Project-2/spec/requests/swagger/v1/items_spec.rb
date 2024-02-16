@@ -126,6 +126,10 @@ RSpec.describe 'v1/items', type: :request do
         run_test!
       end
 
+      response 400, 'Bad request' do
+        run_test!
+      end
+
       response 404, 'Invalid todo and/or item ID' do
         let(:id) { 'invalid_id' }
         run_test!
